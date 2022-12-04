@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-php
+  labels:
+    php: isc_reticula
+spec:
+  selector:
+    matchLabels:
+      php: isc_reticula
+      tier: php-front
+  replicas: 7
+  template:
+    metadata:
+      labels:
+        php: isc_reticula
+        tier: php-front
+    spec:
+      containers:
+      - name: php-deployment-container
+        image: shglez/php-apache:v1

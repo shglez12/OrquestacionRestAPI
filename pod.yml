@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: isc-reticula
+spec:
+  containers:
+    - name: isc-reticula
+      image: salmahglez/isc_reticula_img:v1
+      ports:
+        - containerPort: 8085

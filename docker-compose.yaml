@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+    php-apache-environment:
+        container_name: isc_reticula
+        build:
+            context: ./src
+            dockerfile: DockerFile
+        depends_on:
+            - db
+        volumes:
+            - ./src:/var/www/html/
+        ports:
+            - 8088:80
+    db:
+      container_name: isc_db
+      image: mysql
+      restart: always
+      environment:
+          MYSQL_ROOT_PASSWORD: "sg" 
+          MYSQL_DATABASE: "reticulaisc"
+          MYSQL_USER: "salmahg"
+          MYSQL_PASSWORD: "sg"
+      ports:
+          - "9906:3306"

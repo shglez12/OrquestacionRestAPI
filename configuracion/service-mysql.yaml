@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-mysql
+  labels:
+    mysql: database
+    tier: database-back
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: "TCP"
+  selector:
+    mysql: database
+    tier: database-back
